@@ -1,4 +1,4 @@
-import { type PageProps } from "$fresh/server.ts";
+import { type PageProps } from "https://deno.land/x/fresh@1.6.5/server.ts";
 export default function App({ Component }: PageProps) {
   return (
     <html>

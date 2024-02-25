@@ -1,5 +1,6 @@
 import Axios from "npm:axios"
-import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
+import { FreshContext, Handlers, PageProps } from "https://deno.land/x/fresh@1.6.5/server.ts";
+
 
 type Data = {
     text: string;
