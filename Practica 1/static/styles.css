@@ -11,6 +11,36 @@
 }
 
 
+.anuncio-der {
+  position: absolute;
+  bottom: 1%; /* Puedes ajustar la posición vertical según tu diseño */
+  right: 0%; /* Cambia esta propiedad para posicionar el anuncio en otro lado */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 10% ; /* Ajusta el ancho según tu diseño */
+  height: 75%; /* Ajusta el alto según tu diseño */
+
+  background-image: url('netscape-ad.gif');
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+
+.anuncio-izq {
+  position: absolute;
+  bottom: 1%; /* Puedes ajustar la posición vertical según tu diseño */
+  left: 0%; /* Cambia esta propiedad para posicionar el anuncio en otro lado */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 10% ; /* Ajusta el ancho según tu diseño */
+  height: 75%; /* Ajusta el alto según tu diseño */
+
+  background-image: url('netscape-ad.gif');
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+
 
 .lesson {
   font-size: 18px;
@@ -18,10 +48,16 @@
   background-color: purple;
   position: relative;
   text-align: center;
-  border: 2px solid #37ff00; /* Añadimos un borde */
+  border: 5px solid #37ff00; 
   margin: 10px 0;
-  box-shadow: 0 0 10px rgba(55, 255, 0, 0.5); /* Añadimos una sombra */
-  transform: rotateY(10deg); /* Transformación 2D */
+  box-shadow: 0 0 20px rgba(55, 255, 0, 0.9); 
+}
+
+.lesson:hover {
+  background-color: #37ff00;
+  color: purple;
+  transition: transform 1.5s ;
+  transform: translate(0px, 200px) ;
 }
 
 .button {
@@ -33,10 +69,27 @@
   font-size: 25px;
   border-radius: 5px;
   margin: 20px;
-  
   display: inline-block;
   transition: background-color 1.5s ease; 
+}
 
+.button1 {
+  background-color: #e50a0a;
+  color: #00ff00;
+  border: none;
+  padding: 15px 20px; 
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 20px;
+  display: inline-block;
+  transition: background-color 1.2s ease; 
+  transition: border 0.5s ease;
+  display: absolute;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid red; 
+  box-shadow: 0 0 60px red; 
 }
 
 #botones {
@@ -44,14 +97,32 @@
   justify-content: center;
 }
 
-.button:hover {
-  background-color: #1100ff;
+
+
+.button:hover, .button1:hover {
+  background-color: blue;
+  border: 5px solid blue;
 }
 
 h1, h2 {
   font-size: 24px;
-  color: #77df00;
+  color: red;
   background-color: blue;
   position: relative;
   text-align: center;
+  border: 5px solid #37ff00; 
+  box-shadow: 0 0 60px purple; 
+}
+
+h2:hover {
+  background-color: #77df00;
+  color: blue;
+  transition: transform 1.5s ;
+  transform: translate(0px, 200px) ;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

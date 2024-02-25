@@ -19,11 +19,12 @@ const Page = (props: PageProps<Data>) => {
     return (
         <div class="container">
             
-        <h2>Ha tocado esta leccion: </h2>
-        <h3 class="lesson">{texto}</h3>
-        <a class="button"  href="/" style={{fontSize: '15px', padding: '15px 20px'}}>Volver</a>
-
-    </div>
+                <h2>Ha tocado de forma aleatoria esta leccion: </h2>
+                <h3 class="lesson">{texto}</h3>
+            <div id="botones"> 
+                <a class="button1"  href="/" >Volver</a>
+            </div>
+        </div>
     )
 };
 

@@ -35,20 +35,24 @@ const Page = (props: PageProps<Data>) => {
         <h1>Leccion elegida</h1>
 
           {props.data.id === undefined && (
-            <>
+            <div>
               <form class="form" method="get">
                 <input class="input" type="text" name="id" value={id || ""} />
-                <button class="button" type="submit">Enviar</button>
+                <button class="button1" type="submit" style={{fontSize: '15px'}}>Enviar</button>
               </form>
-              <a  class="button" href="/"> Volver </a>
-            </>
+              <div id="botones"> 
+                <a class="button1"  href="/" >Volver</a>
+              </div>
+            </div>
           )}
     
           {props.data.id && (
             <div>
               <h2>Has seleccionado esta lección:</h2>
               <h3 class="lesson">{text}</h3>
-              <a class="button"  href="/leccion_elegida">Volver</a>
+              <div id="botones"> 
+                <a class="button1"  href="/leccion_elegida" >Volver</a>
+              </div>
             </div>
           )}
         </div>

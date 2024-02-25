@@ -7,6 +7,11 @@ export default function Home() {
         <a class="button" href="/leccion_aleatoria">Leccion Aleatoria</a>
         <a class="button" href="/leccion_elegida">Leccion Elegida</a>
         </div>
+
+
+        <div class="anuncio-der"></div>
+        <div class="anuncio-izq"></div>
+        
       </div>
     );
   }
