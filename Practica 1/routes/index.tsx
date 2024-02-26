@@ -1,4 +1,4 @@
-import { useSignal } from "https://esm.sh/preact@10.15.1/signals";
+import { useSignal } from "https://esm.sh/*@preact/signals@1.1.3";
 import Counter from "../islands/Counter.tsx";
 
 export default function Home() {

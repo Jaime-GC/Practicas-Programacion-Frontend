@@ -1,4 +1,4 @@
-import type { Signal } from "https://esm.sh/preact@10.15.1/signals";
+import type { Signal } from "https://esm.sh/*@preact/signals@1.1.3";
 import { Button } from "../components/Button.tsx";
 
 interface CounterProps {
