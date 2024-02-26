@@ -8,7 +8,7 @@ import * as $index from "./routes/index.tsx";
 import * as $leccion_aleatoria from "./routes/leccion_aleatoria.tsx";
 import * as $leccion_elegida from "./routes/leccion_elegida.tsx";
 
-import { type Manifest } from "https://deno.land/x/fresh@1.6.5/server.ts";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
