@@ -29,11 +29,11 @@ jobs:
           node-version: lts/*
 
       - name: Build step
-        run: "deno run -A dev.ts build" # 📝 Update the build command(s) if necessary
+        run: "deno run -A Practicas-Programacion-Frontend/basura/dev.ts build" # 📝 Update the build command(s) if necessary
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "basura"
-          entrypoint: "./basura/main.ts" # 📝 Update the entrypoint if necessary
+          entrypoint: "Practicas-Programacion-Frontend/basura/main.ts" # 📝 Update the entrypoint if necessary
           root: "." # 📝 Update the root if necessary
