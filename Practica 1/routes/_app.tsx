@@ -1,4 +1,4 @@
-import { AppProps } from "$fresh/server.ts";
+import { AppProps } from "https://deno.land/x/fresh@1.4.2/server.ts";
 
 export default function App({ Component }: AppProps) {
   return (

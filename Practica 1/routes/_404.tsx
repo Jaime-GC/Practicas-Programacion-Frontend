@@ -1,4 +1,4 @@
-import { Head } from "$fresh/runtime.ts";
+import { Head } from "https://deno.land/x/fresh@1.4.2/runtime.ts";
 
 export default function Error404() {
   return (
