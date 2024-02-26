@@ -36,4 +36,4 @@ jobs:
         with:
           project: "practica1-2024"
           entrypoint: "Practica 1/main.ts" # 📝 Update the entrypoint if necessary
-          root: "." # 📝 Update the root if necessary
+          root: "." # 📝 Update the root if necessary 
