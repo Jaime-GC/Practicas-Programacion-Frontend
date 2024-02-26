@@ -1,12 +1,12 @@
-import { type PageProps } from "https://deno.land/x/fresh@1.6.5/server.ts";
-export default function App({ Component }: PageProps) {
+import { AppProps } from "$fresh/server.ts";
+
+export default function App({ Component }: AppProps) {
   return (
     <html>
       <head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Practica 1</title>
-        <link rel="stylesheet" href="/styles.css" />
+        <title>fresh_template</title>
       </head>
       <body>
         <Component />
