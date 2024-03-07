@@ -7,8 +7,15 @@ import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
+<<<<<<<< HEAD:Practica-2/fresh.gen.ts
 import * as $Counter from "./islands/Counter.tsx";
 import { type Manifest } from "$fresh/server.ts";
+========
+import * as $leccion_aleatoria from "./routes/leccion_aleatoria.tsx";
+import * as $leccion_elegida from "./routes/leccion_elegida.tsx";
+
+import { type Manifest } from "https://deno.land/x/fresh@1.6.5/server.ts";
+>>>>>>>> ac55a59f82877e0a4287c30238d817406b159f7b:Practica-1/fresh.gen.ts
 
 const manifest = {
   routes: {
@@ -17,6 +24,8 @@ const manifest = {
     "./routes/api/joke.ts": $api_joke,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
+    "./routes/leccion_aleatoria.tsx": $leccion_aleatoria,
+    "./routes/leccion_elegida.tsx": $leccion_elegida,
   },
   islands: {
     "./islands/Counter.tsx": $Counter,
