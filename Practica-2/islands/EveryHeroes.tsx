@@ -24,7 +24,7 @@ const EveryHeroes: FunctionalComponent = () => {
         debugger;
     }
 
-    getHeroes();
+    
 
     return (
         <div>
