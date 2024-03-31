@@ -15,9 +15,8 @@ export default async function Home() {
 
     const heroes:Heroe[] = response.data;
     return (
-      <div class="flex-column">
-        <h1 class="mainTitle">Heroes</h1>
-        <div class="flex-row flex-around">
+      <>
+
           {heroes && heroes.map((char) => (
             <Heroe
               name={char.name}
@@ -25,8 +24,7 @@ export default async function Home() {
               sound={char.sound}
             />
           ))}
-        </div>
-      </div>
+      </>
     );
 
 }
