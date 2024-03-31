@@ -12,28 +12,42 @@ export const handler: Handlers = {
     } 
 };
 
+type HeroeData = {
+    name: string;
+    image: string;
+    sound: number;
+};
 
 
 const EveryHeroes: FunctionalComponent = () => {
-    const [heroes, setHeroes] = useState<string[]>([]); 
+    const [heroes, setHeroes] = useState<HeroeData[]>([]); 
     
     const getHeroes = async (): Promise<void> => {
-        const url = "https://supermondongo.deno.dev/";
-        const response = await axios.get(url);
+        const url = "http://localhost:8080/https://supermondongo.deno.dev/";
+        const response = await axios.get(url, {
+            headers: {
+                'origin': 'http://localhost:8000',
+                // o puedes usar 'x-requested-with': 'XMLHttpRequest'
+            }
+        });
+        console.log(response.data);
         setHeroes(response.data);
-        debugger;
+        
     }
 
-    
+    getHeroes();
+
+    {console.log("Estos son los heroes:" + heroes + "fin")}
 
     return (
-        <div>
+        <div  class="container">
             <h1>Every Heroes</h1>
-            <ul>
+            
+            
                 {heroes.map((hero) => (
-                    <li>{hero.name}</li>
+                    <div>{hero.name}</div>
                 ))}
-            </ul>
+            
         </div>
     );
 

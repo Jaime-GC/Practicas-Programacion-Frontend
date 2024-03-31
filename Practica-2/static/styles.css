@@ -1,45 +1,14 @@
 .container {
   background-color: #45d91c;
-  width: 100vw; 
-  height: 100vh; 
+  width: 100%; 
+  height: 100%; 
   position: absolute; 
   top: 0; 
   left: 0; 
-  background-image: url('fondo.png');
+  /*background-image: url('fondo.png');
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover; */
 }
-
-
-.anuncio-der {
-  position: absolute;
-  bottom: 1%; /* Puedes ajustar la posición vertical según tu diseño */
-  right: 0%; /* Cambia esta propiedad para posicionar el anuncio en otro lado */
-  background-color: #fff;
-  border: 1px solid #ccc;
-  width: 10% ; /* Ajusta el ancho según tu diseño */
-  height: 75%; /* Ajusta el alto según tu diseño */
-
-  background-image: url('netscape-ad.gif');
-  background-repeat: no-repeat;
-  background-size: cover; 
-}
-
-
-.anuncio-izq {
-  position: absolute;
-  bottom: 1%; /* Puedes ajustar la posición vertical según tu diseño */
-  left: 0%; /* Cambia esta propiedad para posicionar el anuncio en otro lado */
-  background-color: #fff;
-  border: 1px solid #ccc;
-  width: 10% ; /* Ajusta el ancho según tu diseño */
-  height: 75%; /* Ajusta el alto según tu diseño */
-
-  background-image: url('netscape-ad.gif');
-  background-repeat: no-repeat;
-  background-size: cover; 
-}
-
 
 
 .lesson {
