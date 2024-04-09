@@ -1,12 +1,8 @@
 import { FunctionComponent } from "preact";
+import { HeroeType } from "../types.ts";
 
-type HeroeProps = {
-  name: string;
-  image: string;
-  sound: string;
-};
 
-const Heroe: FunctionComponent<HeroeProps> = (props) => {
+const Heroe: FunctionComponent<HeroeType> = (props) => {
   const { name, image, sound } = props;
   return (
     <div class="characterContainer">

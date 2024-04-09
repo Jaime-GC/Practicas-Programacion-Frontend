@@ -8,7 +8,7 @@ const Layout = (props: PageProps) => {
         <nav className="navbar">
           <ul>
             <li><a href="/">Inicio</a></li>
-            <li><a href="/searchR">Búsqueda</a></li>
+            <li><a href="/search">Búsqueda</a></li>
             <li><a href="/create">Crear Héroe</a></li>
           </ul>
         </nav>
@@ -28,7 +28,7 @@ const Layout = (props: PageProps) => {
 
 
       <footer>
-        <p>Derechos de autor © 2024 Tierra 2</p>
+        <p>Derechos de autor Tierra 2 2024 Jaime Gonzälez Carbajo ©</p>
       </footer>
     </div>
   );

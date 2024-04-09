@@ -1,27 +1,23 @@
 import axios from "npm:axios";
-import Heroe from "../islands/Heroe.tsx";
-type Heroe = {
-  name: string;
-  image: string;
-  sound: string;
-};
+import Heroe from "../components/Heroe.tsx";
+import { HeroeType } from "../types.ts";
 
 
 export default async function Home() {
 
-    const response = await axios.get<Heroe[]>(
+    const response = await axios.get<HeroeType[]>(
       "https://supermondongo.deno.dev/",
     );
 
-    const heroes:Heroe[] = response.data;
+    const heroes:HeroeType[] = response.data;
     return (
       <>
 
-          {heroes && heroes.map((char) => (
+          {heroes && heroes.map((heroe) => (
             <Heroe
-              name={char.name}
-              image={char.image}
-              sound={char.sound}
+              name={heroe.name}
+              image={heroe.image}
+              sound={heroe.sound}
             />
           ))}
       </>
