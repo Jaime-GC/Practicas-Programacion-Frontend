@@ -4,18 +4,6 @@ import Axios from "npm:axios"
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 
 
-/*
-export default function Home() {
-  return (
-    <>
-      <HeroeSearch />
-    </>
-  );
-}
-*/
-
-
-
 
 
 export const handler: Handlers = {
