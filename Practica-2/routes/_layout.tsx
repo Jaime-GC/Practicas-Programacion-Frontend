@@ -16,13 +16,10 @@ const Layout = (props: PageProps) => {
 
 
       <main>
-      <div class="flex-column">
-        <h1 class="mainTitle">Heroes</h1>
-        <div class="flex-row flex-around">
+      
           <Component />
           
-        </div>
-      </div>
+      
         
       </main>
 

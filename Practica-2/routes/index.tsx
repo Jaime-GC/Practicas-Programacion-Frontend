@@ -12,14 +12,22 @@ export default async function Home() {
     const heroes:HeroeType[] = response.data;
     return (
       <>
+        <div class="flex-column">
+          <h1 class="mainTitle">Heroes</h1>
+            <div class="flex-row flex-around">
+     
+                {heroes && heroes.map((heroe) => (
+                  <Heroe
+                    name={heroe.name}
+                    image={heroe.image}
+                    sound={heroe.sound}
+                  />
+                ))}
 
-          {heroes && heroes.map((heroe) => (
-            <Heroe
-              name={heroe.name}
-              image={heroe.image}
-              sound={heroe.sound}
-            />
-          ))}
+            </div>
+        </div>
+
+
       </>
     );
 

@@ -27,8 +27,6 @@ const Page = (props: PageProps<HeroeType>) => {
     const heroe = props.data[0];
     
     
-    console.log(heroe);
-    
     return (
 
 
