@@ -34,9 +34,10 @@ const Page = (props: PageProps<HeroeType>) => {
 
       {props.data[0] === undefined && 
 
-          <><form method="get">
-              <input type="text" name="name" value={""} />
-              <button type="submit">Enviar</button>
+          <><form class="form" method="get">
+            <h1>Buscar heroe</h1>
+              <input type="text" placeholder="Nombre del heroe" name="name" value={""} />
+              <button class="button" type="submit">Enviar</button>
           </form></>
       }
 

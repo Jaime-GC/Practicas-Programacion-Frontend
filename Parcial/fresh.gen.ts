@@ -5,11 +5,10 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
-import * as $create_heroe from "./routes/create_heroe.tsx";
-import * as $heroe_info_name_ from "./routes/heroe_info/[name].tsx";
+import * as $agendacsr from "./routes/agendacsr.tsx";
+import * as $agendassr from "./routes/agendassr.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $search from "./routes/search.tsx";
-
+import * as $AgendaManager from "./islands/AgendaManager.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -17,12 +16,13 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
-    "./routes/create_heroe.tsx": $create_heroe,
-    "./routes/heroe_info/[name].tsx": $heroe_info_name_,
+    "./routes/agendacsr.tsx": $agendacsr,
+    "./routes/agendassr.tsx": $agendassr,
     "./routes/index.tsx": $index,
-    "./routes/search.tsx": $search,
   },
-  islands: {},
+  islands: {
+    "./islands/AgendaManager.tsx": $AgendaManager,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

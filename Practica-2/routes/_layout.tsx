@@ -9,7 +9,7 @@ const Layout = (props: PageProps) => {
           <ul>
             <li><a href="/">Inicio</a></li>
             <li><a href="/search">Búsqueda</a></li>
-            <li><a href="/create">Crear Héroe</a></li>
+            <li><a href="/create_heroe">Crear Héroe</a></li>
           </ul>
         </nav>
       </header>
@@ -25,7 +25,7 @@ const Layout = (props: PageProps) => {
 
 
       <footer>
-        <p>Derechos de autor Tierra 2 2024 Jaime Gonzälez Carbajo ©</p>
+        <p>Derechos de autor Tierra 2 2024 Jaime González Carbajo ©</p>
       </footer>
     </div>
   );
