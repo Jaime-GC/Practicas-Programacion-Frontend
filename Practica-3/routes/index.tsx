@@ -15,16 +15,12 @@ export default async function Home() {
     const lovers:Lover[] = response.data;
     return (
       <>
-      <div>hola
+      <div>
 
         <FilteredProfilesPage />
       </div>
 
-
-
-
-
-        <div class="flex-column">
+    <div class="flex-column">
           <h1 class="mainTitle">Lovers</h1>
             <div class="flex-row flex-around">
      
