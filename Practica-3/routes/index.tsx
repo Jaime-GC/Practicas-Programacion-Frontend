@@ -15,7 +15,7 @@ export default async function Home() {
     const lovers:Lover[] = response.data;
     return (
       <>
-      <div>
+      <div>hola
 
         <FilteredProfilesPage />
       </div>
