@@ -18,7 +18,7 @@ const Layout = (props: PageProps) => {
             <li><a href="/search">Búsqueda</a></li>
             <li><a href="/inicioSesionR">Iniciar Sesión</a></li>
             <li><a href="/crearCuentaR">Crear Cuenta</a></li>
-            <li><a href="/BorrarUsuarioR">Borrar Usuario</a></li>
+            <li><a href="/borrarUsuarioR">Borrar Usuario</a></li>
             
           </ul>
 
