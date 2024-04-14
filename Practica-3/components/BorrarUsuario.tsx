@@ -6,7 +6,7 @@ const BorrarUsuario: FunctionComponent = () => {
 
   return (
     <div>
-      <form action="/BorrarUsuarioR" method="POST" class="form">
+      <form action="/borrarUsuarioR" method="POST" class="form">
         <h1>Borrar usuario</h1>
 
           <label>
