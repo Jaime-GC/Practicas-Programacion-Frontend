@@ -13,10 +13,10 @@ export default async function Home() {
 
     const lovers:Lover[] = response.data;
     return (
-      <>
+      <div>
 
         <div class="flex-column">
-          <h1 class="mainTitle">Lovers</h1>
+          <h1 class="mainTitle">Lovers App</h1>
             <div class="flex-row flex-around">
      
                 {lovers && lovers.map((lover) => (
@@ -29,8 +29,8 @@ export default async function Home() {
             </div>
         </div>
 
-
-      </>
+       
+      </div>
     );
 
 }

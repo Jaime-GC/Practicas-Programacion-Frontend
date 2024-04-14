@@ -1,7 +1,7 @@
 import { Handlers, FreshContext, PageProps } from "$fresh/server.ts";
 import Axios from "npm:axios";
 import { LoverType } from "../types.ts";
-import Lover from "../components/Lover.tsx";
+import Lover2 from "../components/Lover2.tsx";
 
 export const handler: Handlers = {
   GET: async (req: Request, ctx: FreshContext<unknown, LoverType[]>) => {
@@ -42,10 +42,6 @@ export const handler: Handlers = {
 const Page = (props: PageProps<LoverType[]>) => {
   const filteredLovers = props.data;
 
-  const handleReset = () => {
-    // Redirigir a la página sin parámetros de consulta para resetear los filtros
-    window.location.href = window.location.pathname;
-  };
 
   return (
     <div>
@@ -53,13 +49,12 @@ const Page = (props: PageProps<LoverType[]>) => {
 
       <form class="form" method="get">
         <h2>Introduce los filtros</h2>
-        {/* Input de texto para filtrar por nombre */}
+        
         <label>
           Filter by Name:
           <input type="text" name="name" defaultValue="" />
         </label>
 
-        {/* Selector de filtro por sexo */}
         <label>
           Filter by Sex:
           <select name="sex">
@@ -69,13 +64,11 @@ const Page = (props: PageProps<LoverType[]>) => {
           </select>
         </label>
 
-        {/* Selector de filtro por edad */}
         <label>
           Filter by Age:
           <input type="number" name="age" min="0" defaultValue="" />
         </label>
 
-        {/* Input de texto para filtrar por hobbies */}
         <label>
           Filter by Hobbies:
           <input type="text" name="hobbies" defaultValue="" />
@@ -91,11 +84,10 @@ const Page = (props: PageProps<LoverType[]>) => {
       <div class="flex-row flex-around">
         {filteredLovers.length > 0 ? (
           filteredLovers.map((lover) => (
-            <div key={lover.name} class="characterContainer">
-              <Lover name={lover.name} photo={lover.photo} />
-              <p>Age: {lover.age}</p>
-              <p>Sex: {lover.sex}</p>
-              <p>Hobbies: {lover.hobbies.join(", ")}</p>
+            <div key={lover.name}>
+              <Lover2 name={lover.name} photo={lover.photo} age={lover.age}  sex={lover.sex} hobbies={lover.hobbies}/>
+              
+              
             </div>
           ))
         ) : (

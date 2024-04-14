@@ -3,20 +3,22 @@ import { LoverType } from "../types.ts";
 import { comment } from "../types.ts";
 
 
-const Lover: FunctionComponent<LoverType> = (props) => {
-  const { name, photo } = props;
+const Lover2: FunctionComponent<LoverType> = (props) => {
+  const { name, age, sex, hobbies, photo } = props;
 
   return (
     <div>
 
-      <a class="but" href={"/lover_info/" + name}> 
+        <a class="but" href={"/lover_info/" + name}> 
+
       
         <div class="characterContainer">
 
         <h2 class="text-overflow">{name}</h2>
         <img class="img-m rounded" src={photo} />          
-        <p>
-        </p>
+        <p class="letra">Age: {age}</p>
+        <p class="letra">Sex: {sex}</p>
+        <p class="letra">Hobbies: {hobbies.join(", ")}</p>
 
         </div>
 
@@ -26,4 +28,4 @@ const Lover: FunctionComponent<LoverType> = (props) => {
   );
 };
 
-export default Lover;
+export default Lover2;

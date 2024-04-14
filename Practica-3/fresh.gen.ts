@@ -5,9 +5,14 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
+import * as $borrarUsuarioR from "./routes/borrarUsuarioR.tsx";
+import * as $crearCuentaR from "./routes/crearCuentaR.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $inicioSesionR from "./routes/inicioSesionR.tsx";
+import * as $lover_info_name_ from "./routes/lover_info/[name].tsx";
 import * as $search from "./routes/search.tsx";
-
+import * as $CrearCuenta from "./islands/CrearCuenta.tsx";
+import * as $InicioSesion from "./islands/InicioSesion.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -15,10 +20,17 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
+    "./routes/borrarUsuarioR.tsx": $borrarUsuarioR,
+    "./routes/crearCuentaR.tsx": $crearCuentaR,
     "./routes/index.tsx": $index,
+    "./routes/inicioSesionR.tsx": $inicioSesionR,
+    "./routes/lover_info/[name].tsx": $lover_info_name_,
     "./routes/search.tsx": $search,
   },
-  islands: {},
+  islands: {
+    "./islands/CrearCuenta.tsx": $CrearCuenta,
+    "./islands/InicioSesion.tsx": $InicioSesion,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
