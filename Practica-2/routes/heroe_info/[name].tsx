@@ -1,6 +1,7 @@
 import Axios from "npm:axios";
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import { HeroeType } from "../../types.ts";
+import Heroe from "../../components/Heroe.tsx";
 
 
 
@@ -16,6 +17,8 @@ export const handler: Handlers = {
 
 
 const Page = (props: PageProps<HeroeType>) => {
+
+  
   const { name, image, sound, creator } = props.data[0]; //Usamos el [0] ya que props.data es un ARRAY de un elemento, 
   //console.log("Sin [0]" , props.data);          NO UN SOLO ELEMENTO de tipo objeto
   //console.log("Con [0]" , props.data[0]);

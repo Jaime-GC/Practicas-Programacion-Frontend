@@ -10,34 +10,39 @@ export const handler: Handlers = {
     GET: async (req: Request, ctx: FreshContext<unknown, HeroeType>) => {
         const url = new URL(req.url);
         const name = url.searchParams.get("name") || undefined;
-        const image = url.searchParams.get("image") || undefined;
-        const sound = url.searchParams.get("sound") || undefined;
         const creator = url.searchParams.get("creator") || undefined;
 
-        console.log("nombre", name, "image", image, "sound", sound, "creator", creator);
-
+        console.log("nombre", name,  "creator", creator);
         
-        
-        if (name !== undefined && image !== undefined && sound !== undefined && creator !== undefined) {
-            const response = await Axios.get(`https://supermondongo.deno.dev/${name}`);
-            if (response.data === 200) {
+        if (name !== undefined && creator !== undefined) {
+            const url = `https://supermondongo.deno.dev/${name}`;
+            const response = await Axios.get(url);
+            if (response.status === 200) {
                 console.log("El heroe ya existe");
-                return ctx.render({ name, image, sound, creator });
-            } else {
-                await Axios.post("https://supermondongo.deno.dev/", { name, image, sound, creator });
-                return ctx.render({ name, image, sound, creator });
+                console.log("nombre", name,  "creator", creator);
+                await fetch(url, {
+                    method: "DELETE",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ creator: creator }),
+                  });
+
+                return ctx.render(response.data);
+            } else if(response.status === 404 || response.status === 400) {
+                return ctx.render({ name: "Error", image: "", sound: "", creator: "Hero not found" });
             }
         } else {
             return ctx.render({ name: "", image: "", sound: "", creator: "" });
         }
-        
+            
     } 
 };
 
 const Page = (props: PageProps<HeroeType>) => {
 
     const heroe = props.data;
-    
+
     
     return (
 
@@ -46,22 +51,20 @@ const Page = (props: PageProps<HeroeType>) => {
 
 
           <><form class="form" method="get">
-            <h1>Crear heroe</h1>
+            <h1>Borrar heroe</h1>
               <input type="text" placeholder="Name" name="name" value={""} />
-              <input type="text" placeholder="Image" name="image" value={""} />
-              <input type="text" placeholder="Sound" name="sound" value={""} />
               <input type="text" placeholder="Creator" name="creator" value={""} />
               <button class="button" type="submit">Enviar</button>
           </form></>
       
 
-        {heroe.name !== undefined &&
+        {heroe !== undefined &&
 
         
 
     
             <>
-            <h1>Información del heroe creado</h1>
+            <h1>Información del heroe borrado</h1>
 
                 <div>
 

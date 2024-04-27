@@ -10,6 +10,7 @@ const Layout = (props: PageProps) => {
             <li><a href="/">Inicio</a></li>
             <li><a href="/search">Búsqueda</a></li>
             <li><a href="/create_heroe">Crear Héroe</a></li>
+            <li><a href="/delete_heroe">Borrar Héroe</a></li>
           </ul>
         </nav>
       </header>
