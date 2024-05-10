@@ -1,0 +1,276 @@
+.layout {
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg');
+  background-size: cover;
+  background-repeat: repeat; /* No necesitas repetir la imagen si estás usando cover */
+  background-position: center;
+  width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho del padre */
+  height: 100vh; /* Usar el 100% de la altura de la ventana gráfica */
+}
+
+
+
+
+.divbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; /* Color de fondo del navbar */
+  padding: 10px 20px;
+  border-radius: 5px; /* Agregamos un borde redondeado */
+  margin-bottom: 20px; /* Margen inferior para separar el navbar del contenido */
+  border-color: #f2f2f2;
+  border: 5px solid #717171;
+}
+
+.divbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.divbar li {
+  margin-right: 20px;
+}
+
+.divbar a {
+  text-decoration: none;
+  color: rgb(20, 19, 19);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.divbar a:hover {
+  color: lightgray;
+}
+
+
+
+@media (max-width: 600px) {
+  .divbar ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .divbar li {
+    margin-right: 0; /* Elimina el margen derecho para que la lista sea completamente vertical */
+  }
+}
+
+
+
+
+.form {
+  display: flex;
+  justify-content: center ;
+  align-items: start;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 27rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form input {
+  font-size: 130%; 
+  margin: 0.7rem;
+}
+
+.form select {
+  font-size: 130%; 
+  margin: 0.7rem;
+ 
+}
+
+.form h1 {
+  text-align: center;
+  margin-bottom: 1rem; 
+  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
+  background-size: 100% auto;
+  -webkit-animation: cambio-color 15s ease infinite;
+  -moz-animation: cambio-color 15s ease infinite;
+  animation: cambio-color 15s ease infinite;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin: 0 auto; 
+  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
+  background-size: 100% auto;
+  -webkit-animation: cambio-color 15s ease infinite;
+  -moz-animation: cambio-color 15s ease infinite;
+  animation: cambio-color 15s ease infinite;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: auto 1rem auto 150%;
+}
+
+.form .button1 {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+}
+
+.form a {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+  margin: auto 20% auto 1rem;
+  text-decoration: none;
+}
+
+.botones{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+
+
+.flex-row {
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg');
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-around {
+  justify-content: space-around;
+}
+
+img.img-s {
+  width: 100px;
+  height: 100px;
+}
+
+img.img-m {
+  width: 200px;
+  height: 300px;
+}
+
+img.rounded {
+  border-radius: 10%;
+}
+
+img.half-rounded {
+  border-radius: 50% 50% 0 0;
+}
+
+img.img-l {
+  width: 300px;
+  height: 300px;
+}
+
+.text-overflow {
+  color: #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: center;
+}
+
+.characterContainer {
+  overflow: hidden;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 5px;
+  width: 250px;
+  border: #ffffff 1px solid;
+  border-radius: 10px;
+}
+
+.characterContainer:hover {
+  background-color: rgb(85, 0, 255);
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mainTitle {
+  text-align: center;
+  font-size: 2em;
+  margin: 20px;
+  
+  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
+  background-size: 50% auto;
+  -webkit-animation: cambio-color 15s ease infinite;
+  -moz-animation: cambio-color 15s ease infinite;
+  animation: cambio-color 15s ease infinite;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+}
+.but {
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+.letra{
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #ffffff;
+  
+}
