@@ -10,7 +10,9 @@ const Layout = (props: PageProps) => {
         <div className="divbar">
 
           <ul>
-            <li><a href="/">Inicio</a></li>
+            <li><a href="/">Films</a></li>
+
+            <li><a href="/projects">Proyectos</a></li>
 
             
           </ul>

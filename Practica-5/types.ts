@@ -19,3 +19,15 @@ export type KeyFeature = {
     _id: string;
     feature: string;
 };  
+
+export type project = {
+    _id: string;
+    name: string;
+    description: string;
+    films: filmItem[];
+  };
+
+  export type filmItem = {
+    film: FilmType;
+    quantity: number;
+  };

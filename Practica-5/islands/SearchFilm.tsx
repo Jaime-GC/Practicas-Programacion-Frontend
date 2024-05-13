@@ -99,7 +99,10 @@ const SearchFilm: FunctionComponent<SearchFilmProps> = (props) => {
           <select
             name="brand"
             value={brand}
-            onChange={(e) => setBrand(e.target.value)}>
+            onChange={(e) => {
+              setBrand(e.target.value);
+              handleSubmit(e);
+              }}>
             <option value="">All</option>
             {props.initialBrands.map((brand, index) => (
               <option key={index} value={brand}>{brand}</option>
@@ -112,7 +115,14 @@ const SearchFilm: FunctionComponent<SearchFilmProps> = (props) => {
           <select
             name="iso"
             value={iso}
-            onChange={(e) => setIso(e.target.value)}>
+            onChange={(e) => {
+              setIso(e.target.value);
+              handleSubmit(e);
+            }}
+            onBlur={(e) => {
+              setIso(e.target.value);
+              handleSubmit(e);
+              }}>
             <option value="">All</option>
             {props.initialIsos.map((iso, index) => (
               <option key={index} value={iso}>{iso}</option>
@@ -184,6 +194,7 @@ const SearchFilm: FunctionComponent<SearchFilmProps> = (props) => {
               name={film.name}
               brand={film.brand}
               photo={film.staticImageUrl}
+              film={film}
             />
           ))
         ) : (
