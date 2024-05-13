@@ -9,10 +9,9 @@ export function filterPropertyJSON(jsonData, propiedad:string) {
           propiedades.push(prop);
         }
       } else {
-        console.error("El objeto no tiene la propiedad 'brand'.");
+        console.error("El objeto no tiene la propiedad:" + propiedad + ".");
       }
     }
-    
     return propiedades;
   }
   

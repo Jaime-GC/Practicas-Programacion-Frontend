@@ -1,10 +1,10 @@
 .layout {
   background-image: url('https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg');
-  background-size: cover;
+  background-size:contain;
   background-repeat: repeat; /* No necesitas repetir la imagen si estás usando cover */
   background-position: center;
   width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho del padre */
-  height: 100vh; /* Usar el 100% de la altura de la ventana gráfica */
+  height: 100%; /* Usar el 100% de la altura de la ventana gráfica */
 }
 
 
@@ -14,12 +14,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff; /* Color de fondo del navbar */
+  color: black;
+  background: linear-gradient(to right, navy, rgb(117, 117, 243), rgb(145, 145, 222),  purple);
   padding: 10px 20px;
-  border-radius: 5px; /* Agregamos un borde redondeado */
+  border-radius: 20px; /* Agregamos un borde redondeado */
   margin-bottom: 20px; /* Margen inferior para separar el navbar del contenido */
-  border-color: #f2f2f2;
-  border: 5px solid #717171;
+  border: 3px solid white;
 }
 
 .divbar ul {
@@ -35,7 +35,7 @@
 
 .divbar a {
   text-decoration: none;
-  color: rgb(20, 19, 19);
+  color: white;
   font-weight: bold;
   transition: color 0.3s ease;
 }
@@ -55,6 +55,73 @@
   .divbar li {
     margin-right: 0; /* Elimina el margen derecho para que la lista sea completamente vertical */
   }
+}
+
+.info {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "area1 area2"
+    "area3 area4"
+    "area5 area5"
+    "area6 area6";
+  gap: 10px;
+  justify-content: center;
+  align-items: start;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  margin: 2rem auto;
+  width: 70%;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info h2 {
+  text-align: center;
+  color: transparent;
+  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
+  background-size: 100% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.info h3 {
+  text-align: center;
+  color: transparent;
+  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
+  background-size: 100% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.info .foto {
+  display: flex;
+  margin-left: 20%;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+
+}
+
+.info .features {
+  display: flex;
+  flex-direction: column;
+  grid-area: 6;
+}
+.info a {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+  margin: auto 20% auto 20%;
+  text-decoration: none;
 }
 
 
@@ -88,7 +155,7 @@
 .form h1 {
   text-align: center;
   margin-bottom: 1rem; 
-  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
+  background: white;
   background-size: 100% auto;
   -webkit-animation: cambio-color 15s ease infinite;
   -moz-animation: cambio-color 15s ease infinite;
@@ -213,31 +280,13 @@ img.img-l {
   text-align: center;
 }
 
-.characterContainer {
-  overflow: hidden;  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0px;
-  padding: 5px;
-  width: 250px;
-  border: #ffffff 1px solid;
-  border-radius: 10px;
-}
-
-.characterContainer:hover {
-  background-color: rgb(85, 0, 255);
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-}
 
 .mainTitle {
   text-align: center;
   font-size: 2em;
   margin: 20px;
   
-  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
+  background: white;
   background-size: 50% auto;
   -webkit-animation: cambio-color 15s ease infinite;
   -moz-animation: cambio-color 15s ease infinite;
@@ -266,6 +315,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 10px;
+  height: wrap-content;
 }
 
 footer {

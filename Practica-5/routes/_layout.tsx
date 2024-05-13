@@ -29,7 +29,7 @@ const Layout = (props: PageProps) => {
 
 
       <footer>
-        <p>Derechos de autor Lovers App 2024 Jaime González Carbajo ©</p>
+        <p>Derechos de autor Films App 2024 Jaime González Carbajo ©</p>
       </footer>
     </div>
   );

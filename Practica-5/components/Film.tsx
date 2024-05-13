@@ -3,12 +3,12 @@ import { FilmType } from "../types.ts";
 
 
 const Film: FunctionComponent<FilmType> = (props) => {
-  const { name, brand, photo } = props;
+  const { _id, name, brand, photo } = props;
 
   return (
     <div>
 
-      <a class="but" href={"/lover_info/" + name}> 
+      <a href={"/film_info/" + _id}> 
       
         <div class="characterContainer">
         
