@@ -73,14 +73,14 @@ const SearchFilm: FunctionComponent<SearchFilmProps> = (props) => {
 
   return (
     <div>
-      <h1 className="mainTitle">Buscador de Films</h1>
+      <h1 className="mainTitle" style={{ textShadow: '0 0 10px #ff00cc' }}>Buscador de Films</h1>
 
       <form className="form" onSubmit={handleSubmit}>
         <h2>Introduce los filtros</h2>
 
 
         <label>
-          Name:
+          Nombre:
         <input
             type="text"
             name="name"
@@ -95,14 +95,11 @@ const SearchFilm: FunctionComponent<SearchFilmProps> = (props) => {
         </label>
 
         <label>
-          Brand:
+          Marca:
           <select
             name="brand"
             value={brand}
-            onChange={(e) => {
-              setBrand(e.target.value);
-              handleSubmit(e);
-              }}>
+            onChange={(e) => setBrand(e.target.value)}>
             <option value="">All</option>
             {props.initialBrands.map((brand, index) => (
               <option key={index} value={brand}>{brand}</option>
@@ -115,14 +112,7 @@ const SearchFilm: FunctionComponent<SearchFilmProps> = (props) => {
           <select
             name="iso"
             value={iso}
-            onChange={(e) => {
-              setIso(e.target.value);
-              handleSubmit(e);
-            }}
-            onBlur={(e) => {
-              setIso(e.target.value);
-              handleSubmit(e);
-              }}>
+            onChange={(e) => setIso(e.target.value)}>
             <option value="">All</option>
             {props.initialIsos.map((iso, index) => (
               <option key={index} value={iso}>{iso}</option>

@@ -7,11 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $film_info_id_ from "./routes/film_info/[id].tsx";
 import * as $index from "./routes/index.tsx";
-import * as $projects from "./routes/projects.tsx";
 import * as $ModalAddPelicula from "./islands/ModalAddPelicula.tsx";
-import * as $ModalDeletePelicula from "./islands/ModalDeletePelicula.tsx";
-import * as $ModalDeleteProyecto from "./islands/ModalDeleteProyecto.tsx";
-import * as $ModalSelectProyecto from "./islands/ModalSelectProyecto.tsx";
 import * as $SearchFilm from "./islands/SearchFilm.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
@@ -22,13 +18,9 @@ const manifest = {
     "./routes/_layout.tsx": $_layout,
     "./routes/film_info/[id].tsx": $film_info_id_,
     "./routes/index.tsx": $index,
-    "./routes/projects.tsx": $projects,
   },
   islands: {
     "./islands/ModalAddPelicula.tsx": $ModalAddPelicula,
-    "./islands/ModalDeletePelicula.tsx": $ModalDeletePelicula,
-    "./islands/ModalDeleteProyecto.tsx": $ModalDeleteProyecto,
-    "./islands/ModalSelectProyecto.tsx": $ModalSelectProyecto,
     "./islands/SearchFilm.tsx": $SearchFilm,
   },
   baseUrl: import.meta.url,

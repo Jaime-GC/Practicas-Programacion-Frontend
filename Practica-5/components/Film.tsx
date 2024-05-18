@@ -12,7 +12,7 @@ const Film: FunctionComponent<FilmType> = (props) => {
       <a href={"/film_info/" + _id}> 
       
         <div class="">
-        
+      
           <h2 class="text-overflow">{name}</h2>
           <h2 class="text-overflow">{brand}</h2>
 
@@ -21,12 +21,8 @@ const Film: FunctionComponent<FilmType> = (props) => {
 
         </div>
       </a>
-         
-        <ModalAddPelicula film={film} />
-
-        
-
-      
+       
+      <ModalAddPelicula film={film} />
 
     </div>
   );

@@ -1,0 +1,45 @@
+.divbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background: linear-gradient(to right, navy, rgb(117, 117, 243), rgb(145, 145, 222), purple);
+    padding: 10px 20px;
+    border-radius: 20px; /* Agregamos un borde redondeado */
+    margin-bottom: 20px; /* Margen inferior para separar el navbar del contenido */
+    border: 3px solid white;
+  }
+  
+  .divbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .divbar li {
+    margin-right: 20px;
+  }
+  
+  .divbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .divbar a:hover {
+    color: lightgray;
+  }
+  
+  @media (max-width: 600px) {
+    .divbar ul {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .divbar li {
+      margin-right: 0; /* Elimina el margen derecho para que la lista sea completamente vertical */
+    }
+  }
+  

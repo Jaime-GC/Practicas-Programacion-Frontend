@@ -1,260 +1,29 @@
+@import url('navbar.css');
+@import url('grid.css');
+@import url('form.css');
+@import url('flex.css');
+@import url('modal.css');
+
+
+
+/* Layout */
 .layout {
   background-image: url('https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg');
-  background-size:contain;
+  background-size: contain;
   background-repeat: repeat; /* No necesitas repetir la imagen si estás usando cover */
   background-position: center;
   width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho del padre */
   height: 100%; /* Usar el 100% de la altura de la ventana gráfica */
 }
 
-
-
-
-.divbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: black;
-  background: linear-gradient(to right, navy, rgb(117, 117, 243), rgb(145, 145, 222),  purple);
-  padding: 10px 20px;
-  border-radius: 20px; /* Agregamos un borde redondeado */
-  margin-bottom: 20px; /* Margen inferior para separar el navbar del contenido */
-  border: 3px solid white;
-}
-
-.divbar ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.divbar li {
-  margin-right: 20px;
-}
-
-.divbar a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.divbar a:hover {
-  color: lightgray;
-}
-
-
-
-@media (max-width: 600px) {
-  .divbar ul {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .divbar li {
-    margin-right: 0; /* Elimina el margen derecho para que la lista sea completamente vertical */
-  }
-}
-
-.info {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-    "area1 area2"
-    "area3 area4"
-    "area5 area5"
-    "area6 area6";
-  gap: 10px;
-  justify-content: center;
-  align-items: start;
-  border: 1px solid #e5e7eb;
-  border-radius: 1rem;
-  margin: 2rem auto;
-  width: 70%;
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.info h2 {
-  text-align: center;
-  color: transparent;
-  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
-  background-size: 100% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.info h3 {
-  text-align: center;
-  color: transparent;
-  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
-  background-size: 100% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.info .foto {
-  display: flex;
-  margin-left: 20%;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-
-}
-
-.info .features {
-  display: flex;
-  flex-direction: column;
-  grid-area: 6;
-}
-.info a {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease; 
-  margin: auto 20% auto 20%;
-  text-decoration: none;
-}
-
-
-
-
-.form {
-  display: flex;
-  justify-content: center ;
-  align-items: start;
-  flex-direction: column;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  margin: 2rem auto;
-  padding: 2rem;
-  max-width: 27rem;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.form input {
-  font-size: 130%; 
-  margin: 0.7rem;
-}
-
-.form select {
-  font-size: 130%; 
-  margin: 0.7rem;
- 
-}
-
-.form h1 {
-  text-align: center;
-  margin-bottom: 1rem; 
-  background: white;
-  background-size: 100% auto;
-  -webkit-animation: cambio-color 15s ease infinite;
-  -moz-animation: cambio-color 15s ease infinite;
-  animation: cambio-color 15s ease infinite;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.form h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  margin: 0 auto; 
-  background: linear-gradient(to right,#cc00cc, #6600ff, #0033ff, #00ccff, #00ff99);
-  background-size: 100% auto;
-  -webkit-animation: cambio-color 15s ease infinite;
-  -moz-animation: cambio-color 15s ease infinite;
-  animation: cambio-color 15s ease infinite;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.form button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: auto 1rem auto 150%;
-}
-
-.form .button1 {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 0 auto;
-}
-
-.form a {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease; 
-  margin: auto 20% auto 1rem;
-  text-decoration: none;
-}
-
-.botones{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-
-
-
-.flex-row {
-  background-image: url('https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg');
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.flex-start {
-  justify-content: flex-start;
-}
-
-.flex-around {
-  justify-content: space-around;
-}
-
+/* Images */
 img.img-s {
   width: 100px;
   height: 100px;
 }
 
 img.img-m {
-  width: 200px;
+  width: 100%;
   height: 300px;
 }
 
@@ -271,6 +40,7 @@ img.img-l {
   height: 300px;
 }
 
+/* Typography */
 .text-overflow {
   color: #ffffff;
   overflow: hidden;
@@ -280,12 +50,10 @@ img.img-l {
   text-align: center;
 }
 
-
 .mainTitle {
   text-align: center;
   font-size: 2em;
   margin: 20px;
-  
   background: white;
   background-size: 50% auto;
   -webkit-animation: cambio-color 15s ease infinite;
@@ -294,15 +62,9 @@ img.img-l {
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+}
 
-}
-.but {
-  font-size: 15px;
-  color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-}
-.letra{
+.letra {
   font-size: 15px;
   color: #ffffff;
   text-align: center;
@@ -310,6 +72,8 @@ img.img-l {
   border-radius: 10px;
   padding: 10px;
 }
+
+/* Body */
 body {
   background-color: #f2f2f2;
   font-family: Arial, sans-serif;
@@ -318,227 +82,24 @@ body {
   height: wrap-content;
 }
 
+/* Footer */
 footer {
   text-align: center;
   margin-top: 20px;
   color: #ffffff;
-  
-}
-
-.contenido_pagina_proyecto h1,
-.contenido_pagina_proyecto p {
-  color: white;
-}
-h1,
-p,
-h3,
-.contenido_pagina_proyecto {
-  color: white;
-}
-
-
-
-.contenido_peliculas {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background-color: #222;
-}
-
-
-.contenido_peliculas h2 {
-  color: #333;
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.contenido_pelicula {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.pelicula {
-  display: flex;
-  flex-direction: row;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fff;
-  width: 100%;
-  box-sizing: border-box;
-  gap: 150px;
-}
-
-.contenido_pelicula_info {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-
-
-.modal {
-  display: block;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  background-color: #050505;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.3s;
-  gap: 15px;
-}
-
-.modal-content p {
-  color: #ffffff;
-  text-align: center;
-}
-
-.modal h3 {
-  color: #0ff;
-  margin: auto;
-  text-align: center;
-}
-
-.close {
-  color: #ffffff;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #ff0;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-
-  to {
-      opacity: 1;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .modal-content {
-      width: 90%;
-      margin: 10% auto;
-  }
-}
-
-.modal-content input[type="text"],
-.modal-content select {
-  padding: 8px;
-  margin-bottom: 10px;
-  width: 100%;
-  border: none;
-  border-radius: 5px;
-  background-color: #555;
-  color: #fff;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.modal-content select {
-  cursor: pointer;
-  appearance: none;
-}
-
-.cont-modal-add-and-create {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 75px;
-}
-
-.cont-modal-add-film,
-.cont-modal-create-project,
-.cont-modal-add-film div {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.modal-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #222;
-  border: 2px solid #555;
-  border-radius: 5px;
-  color: #0ff;
-  font-size: 1.1em;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.modal-input:focus {
-  outline: none;
-  border-color: #ff0;
-  box-shadow: 0 0 8px #ff0;
-}
-
-.modal-textarea {
-  width: 100%;
-  height: 120px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #222;
-  border: 2px solid #555;
-  border-radius: 5px;
-  color: rgb(255, 255, 255);
-  font-size: 1.1em;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
-  resize: none;
-}
-
-.modal-textarea:focus {
-  outline: none;
-  border-color: #ff0;
-  box-shadow: 0 0 8px #ff0;
-}
-
-.film .ButtonAdd {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #797979;
 }
 
 .ButtonAdd {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #4CAF50;
   border: none;
-  border-radius: 0.5rem;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16pt;
+  margin: 4px 2px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 0 auto;
+  border-radius: 10px;
+  width: 100%;
 }
