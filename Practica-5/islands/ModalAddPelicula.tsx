@@ -1,174 +1,157 @@
+// ModalAddPelicula.tsx
 import { FunctionComponent } from "preact";
-import { FilmType, project } from "../types.ts";
 import { useEffect, useState } from "preact/hooks";
+import { FilmType, projectType } from "../types.ts";
+import ModalCrearProyecto from "./ModalCrearProyecto.tsx";
+import { mostrarModalCrearProyectoSignal, proyectosSignal, proyectoCreadoSignal, proyectoIDSeleccionadoSignal } from "../signals/sharedSignals.ts";
 
 type Props = {
-    film: FilmType;
+  film: FilmType;
 };
 
 const ModalAddPelicula: FunctionComponent<Props> = ({ film }: Props) => {
-    const [mostrarModal, setMostrarModal] = useState(false);
-    const [mostrarModalCrearProyecto, setMostrarModalCrearProyecto] = useState(false);
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [peliculaAñadida, setPeliculaAñadida] = useState<boolean>(false);
+  const [contadorPeliculasAñadidas, setContadorPeliculasAñadidas] = useState<number>(0);
 
-    const [proyectos, setProyectos] = useState<project[]>([]);
-    const [nombreProyecto, setNombreProyecto] = useState<string>("");
-    const [descripcionProyecto, setDescripcionProyecto] = useState<string>("");
-    const [projectIDSeleccionado, setProjectIDSeleccionado] = useState<string>("");
-    const [proyectoCreado, setProyectoCreado] = useState<boolean>(false);
+  //Esto se encarga de extraer los proyectos de las cookies y guardarlos en proyectosSignal
+  useEffect(() => {
+    const projectsLoaded: projectType[] = [];
+    document.cookie.split("; ").forEach((cookie) => {
+      if (cookie.startsWith("project_")) {
+        projectsLoaded.push(JSON.parse(cookie.split("=")[1]));
+        console.log(projectsLoaded);
+      }
+    });
+    proyectosSignal.value = projectsLoaded;
+  }, []);
 
-    const [peliculaAñadida, setPeliculaAñadida] = useState<boolean>(false);
+  //Esto hace que el proyecto seleccionado sea el último creado
+  useEffect(() => {
+    if (proyectoCreadoSignal.value === true) {
+      proyectoIDSeleccionadoSignal.value = proyectosSignal.value[proyectosSignal.value.length - 1]._id;
+      proyectoCreadoSignal.value = false;
+    }
+  }, [proyectoCreadoSignal.value]);
 
-    useEffect(() => {
-        const projectsLoaded: project[] = [];
-        document.cookie.split("; ").forEach((cookie) => {
-          if (cookie.startsWith("project_")) {
-            projectsLoaded.push(JSON.parse(cookie.split("=")[1]));
-            console.log(projectsLoaded);
+
+
+  const onAddFilmToProject = (projectID: string, film: FilmType) => {
+
+    
+    if (!projectID) return;
+      
+    const updatedProjects = proyectosSignal.value.map((proj: projectType) => {
+        // Comprobar si este es el proyecto que necesita ser actualizado
+        if (proj._id === projectID) {
+          // Encontrar la película en el proyecto si ya existe
+          let existingFilmIndex = -1;
+          for (let i = 0; i < proj.films.length; i++) {
+            if (proj.films[i].film._id === film._id) {
+              existingFilmIndex = i;
+              break;
+            }
           }
-        });
-        setProyectos(projectsLoaded);
-    }, []);
+      console.log("añadiendo película a proyecto");
+          // Si la película ya existe, incrementar la cantidad
+          if (existingFilmIndex !== -1) {
+            proj.films[existingFilmIndex].quantity += 1;
+          } else {
+            // Si la película no existe, agregarla con cantidad 1
+            proj.films.push({ film: film, quantity: 1 });
+          }
+      
+          // Actualizar la cookie con la información del proyecto
+          document.cookie = `project_${proj._id}=${JSON.stringify(proj)}; path=/;`;
+        }
+      
+        // Devolver el proyecto (actualizado o no modificado)
+        return proj;
+      });
+      
+    setPeliculaAñadida(true);
+    setContadorPeliculasAñadidas(contadorPeliculasAñadidas + 1);
+    proyectosSignal.value = updatedProjects;
+  };
 
 
 
 
+  return (
+    <>
+      <div class="ButtonAdd">
+        <button class="ButtonAdd" onClick={() => setMostrarModal(true)}>+</button>
+      </div>
 
-    const handleCreate = () => {
-        const newProject: project = {
-          _id: Date.now().toString(),
-          name: nombreProyecto,
-          description: descripcionProyecto,
-          films: [],
-        };
-        document.cookie = `project_${newProject._id}=${
-          JSON.stringify(newProject)
-        }; path=/;`;
+      <div class="modal" style={{ display: mostrarModal ? "block" : "none" }}>
+        <div class="modal-content">
+          <span
+            class="close"
+            onClick={() => {
+              setMostrarModal(false);
+              window.location.reload();
+            }}
+          >
+            x
+          </span>
 
-        
-        setProyectos([...proyectos, newProject]);
-        setProjectIDSeleccionado(newProject._id);
-        setNombreProyecto("");
-        setDescripcionProyecto("");
-        setProyectoCreado(true);
-        setMostrarModalCrearProyecto(false);
-      };
+          <div class="cont-modal-add-and-create">
+            <div class="cont-modal-add-film">
+              <h3>Añadir pelicula a proyecto</h3>
+              {proyectosSignal.value.length > 0 ? (
+                <div>
+
+                  <p>Add <b>{film.name}</b> to: </p>
+
+                  <select
+                    className="selectM"
+                    onChange={(e) => proyectoIDSeleccionadoSignal.value = e.currentTarget.value}
+                    value={proyectoIDSeleccionadoSignal.value}
+                  >
+                    {proyectosSignal.value.map((proj) => (
+                      <option key={proj._id} value={proj._id}>
+                        {proj.name}
+                      </option>
+                    ))}
+
+                  </select>
 
 
-    return (
-        <> 
-            <div class="ButtonAdd">
-                <button class="ButtonAdd" onClick={() => setMostrarModal(true)}>+</button>
-            </div>
-
-            <div class="modal" style={{ display: mostrarModal ? "block" : "none" }}>
-                <div class="modal-content">
+                  <button
+                    class="modal-btn"
+                    onClick={() => onAddFilmToProject(proyectoIDSeleccionadoSignal.value, film)}
+                  >Añadir pelicula</button>
                     
-                    <span 
-                    class="close" 
-                    onClick={() => {
-                        setMostrarModal(false);
-                        window.location.reload();
-                    }}>x</span>
-
-
-                    <div class="cont-modal-add-and-create">
-
-                        <div class="cont-modal-add-film">
-                            <h3>Añadir pelicula a proyecto</h3>
-                            {proyectos.length > 0 ? (
-                            
-                                <div>
-                                    <p>Add <strong>{film.name}</strong> to: </p>
-                                
-                                <select className="selectM"
-                                    onChange={(e) =>
-                                    setProjectIDSeleccionado(e.currentTarget.value)}
-                                    value={projectIDSeleccionado}
-                                >
-
-                                    {proyectos.map((proj) => (
-                                    <option key={proj._id} value={proj._id}>
-                                        {proj.name}
-                                    </option>
-                                    ))}
-
-                                </select>
-
-                                
-                                <button
-                                    class="modal-btn"
-                                    onClick={() => onAddFilmToProject(projectIDSeleccionado, film)}
-                                >
-                                    Add Film
-                                </button>
-
-                                {peliculaAñadida && (
-                                    <p>
-                                    <strong>{countAddedFilm}</strong>{" "}
-                                    film added to project.
-                                    </p>
-                                )}
-                                </div>
-                            )
-                            : <p>No se han encontrado proyectos, crea uno nuevo.</p>}
-                        </div>
-
-
-                        <div class="cont-modal-create-project">
-                            <h3>Crear nuevo proyecto</h3>
-
-                            <button
-                                class="modal-btn"
-                                onClick={() => setMostrarModalCrearProyecto(true)}
-                            > Crear </button>
-                                
-                        </div>
-                    
-                    </div>
+                  {console.log(peliculaAñadida)}
+                  {peliculaAñadida && (
+                    <p>
+                      <b>{contadorPeliculasAñadidas}</b>{" "}
+                      pelicula añadida al proyecto.
+                    </p>
+                  )}
                 </div>
-
-            
-                <div class="modal" style={{ display: mostrarModalCrearProyecto ? "block" : "none" }}>
-                    <div class="modal-content">
-                        <span 
-                        class="close" 
-                        onClick={() => {
-                            setMostrarModalCrearProyecto(false);
-                            setNombreProyecto("");
-                            setDescripcionProyecto("");
-                        }}>x</span>
-
-                        <h3>Crear Nuevo Proyecto</h3>
-                        <p>Introduce el nombre y la descripcion del proyecto</p>
-
-                        <input className="inputM"
-                        type="text"
-                        value={nombreProyecto}
-                        onBlur={(e)=> setNombreProyecto(e.currentTarget.value)}
-                        placeholder="Nombre del proyecto" 
-                        />
-
-                        <textarea className="textareaM"
-                            value={descripcionProyecto}
-                            onBlur={(e) => setDescripcionProyecto(e.currentTarget.value)}
-                            placeholder="Descripcion del proyecto"
-                        ></textarea>
-
-                        <button class="modal-btn" onClick={handleCreate}>
-                            Create
-                        </button>
-
-                    </div>    
-                </div>
-
-
+              ) : <p>No se han encontrado proyectos, crea uno nuevo.</p>}
             </div>
 
 
+            <div class="cont-modal-create-project">
+              <h3>Crear nuevo proyecto</h3>
+              <button
+                class="modal-btn"
+                onClick={() => mostrarModalCrearProyectoSignal.value = true}
+              >
+                Crear
+              </button>
+            </div>
 
 
-        </>
-    );
+          </div>
+        </div>
+
+        {mostrarModalCrearProyectoSignal.value && <ModalCrearProyecto />}
+      </div>
+    </>
+  );
 };
 
 export default ModalAddPelicula;

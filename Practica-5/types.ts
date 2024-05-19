@@ -21,7 +21,7 @@ export type KeyFeature = {
 };  
 
 
-export type project = {
+export type projectType = {
     _id: string;
     name: string;
     description: string;
