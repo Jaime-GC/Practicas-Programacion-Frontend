@@ -35,7 +35,7 @@ const ProjectsHomePage = (props: PageProps<Data>) => {
     <div className="projects-container">
       <h1>Proyectos</h1>
       {projects.length === 0 ? (
-        <p>No hay proyectos disponibles.</p>
+        <p style={{ color: "white" }} >No hay proyectos disponibles.</p>
       ) : (
         <ul className="projects-list">
           {projects.map((project) => (
