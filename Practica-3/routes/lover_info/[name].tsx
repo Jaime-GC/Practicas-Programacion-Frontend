@@ -51,7 +51,7 @@ const Page = (props: PageProps<LoverType>) => {
             </div>
 
             <div>
-              <img class="img-m rounded" src={photo} />
+              <img class="foto" src={photo} />
             </div>
 
             <div>
