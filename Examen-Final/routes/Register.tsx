@@ -1,81 +1,93 @@
-import { FreshContext, Handlers, PageProps, RouteConfig, } from "$fresh/server.ts";
-import Login from "../components/Register.tsx";
+import { FreshContext, Handlers, RouteConfig } from "$fresh/server.ts";
 import { setCookie } from "$std/http/cookie.ts";
-import type { User } from "../types.ts";
-import jwt from "jsonwebtoken";
 import Register from "../components/Register.tsx";
+import { User } from "../types.ts";
 
-export const config:RouteConfig = {
-    skipInheritLayouts: true,
+import jwt from "jsonwebtoken";
+
+export const config: RouteConfig = {
+  skipInheritedLayouts: true, // Skip already inherited layouts
 };
 
+export const handler: Handlers = {
+  POST: async (req: Request, ctx: FreshContext) => {
+    console.log("register handler");
+    const url = new URL(req.url);
+    const form = await req.formData();
+    const email = form.get("email")?.toString() || "";
+    const password = form.get("password")?.toString() || "";
+    const name = form.get("name")?.toString() || "";
 
-export const handler:Handlers = {
-    POST: async (req: Request, ctx: FreshContext) => {
-        const url = new URL(req.url);
-        const form = await req.formData();
-        const email = form.get("email")?.toString()||"";
-        const password = form.get("password")?.toString()||"";
-        const name = form.get("name")?.toString()||"";
+    const API_URL = Deno.env.get("API_URL");
+    if (!API_URL) {
+      throw new Error("API_URL is not set in the environment");
+    }
 
-        const API_URL = Deno.env.get("API_URL");
+    // post to API_url/register with body name, email, password
+    const response = await fetch(
+      `${API_URL}/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          name,
+        }),
+      },
+    );
 
-        if(!API_URL){
-            throw new Error("API_URL is not set in yhe environment");
-        }
+    if (response.status == 400) {
+      return ctx.render({
+        message: "User already exists or invalid data provided",
+      });
+    }
 
-        const response = await fetch(
-            `${Deno.env.get("API_URL")}/register`,
-            {
-                method: "POST",
-                headers: { "Content-Type" : "application/json", },
-                body: JSON.stringify({ email, password, name, }),
-            },
-        );
+    const JWT_SECRET = Deno.env.get("JWT_SECRET");
+    if (!JWT_SECRET) {
+      throw new Error("JWT_SECRET is not set in the environment");
+    }
 
-        if (response.status == 400) {
-            return ctx.render({ message: "User already exists or invalid data provided", });
-        }
+    if (response.status == 200) {
+      console.log("User registered successfully");
+      const data: Omit<User, "password" | "favs"> = await response.json();
+      const token = jwt.sign(
+        {
+          email,
+          id: data.id,
+          name: data.name,
+        },
+        JWT_SECRET,
+        {
+          expiresIn: "24h",
+        },
+      );
+      const headers = new Headers();
 
-        const JWT_SECRET = Deno.env.get("JWT_SECRET");
-        if(!JWT_SECRET){
-            throw new Error("JWT_SECRET is not set in yhe environment");
-        }        
+      // create JWT token and set it as a cookie
 
-        if (response.status == 200) {
-            const data: Omit< User, "password" | "favs" > = await response.json();
-            const token = jwt.sign(
-                {
-                    email,
-                    id: data.id,
-                    name: data.name,
-                },
-                JWT_SECRET, {expiresIn: "24h",},
-            );
+      setCookie(headers, {
+        name: "auth",
+        value: token,
+        sameSite: "Lax", // this is important to prevent CSRF attacks
+        domain: url.hostname,
+        path: "/",
+        secure: true,
+      });
 
-            const headers = new Headers();
-            setCookie(headers, {
-                name: "auth",
-                value: token,
-                sameSite: "Lax",
-                domain: url.hostname,
-                path:"/",
-                secure: true,
-              }
-            );
-
-            headers.set("location", "/videos");
-
-            return new Response(null, {status: 303, headers,});
-        }
-        else {
-            return ctx.render();
-        }
-    },
+      headers.set("location", "/videos");
+      return new Response(null, {
+        status: 303, // "See Other"
+        headers,
+      });
+    } else {
+      return ctx.render();
+    }
+  },
 };
 
-const Page = () => (
-    <Register/>
-);
+const Page = () => <Register />;
 
 export default Page;
