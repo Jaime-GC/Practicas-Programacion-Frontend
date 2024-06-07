@@ -25,7 +25,6 @@ const VideoDetail: FunctionComponent<Props> = ({ video, userid }) => {
       </div>
       <h2 className="video-detail-title">{video.title}</h2>
       <p className="video-detail-description">{video.description}</p>
-      <Fav id={video.id} fav={video.fav} userid={userid} />
     </div>
   );
 };

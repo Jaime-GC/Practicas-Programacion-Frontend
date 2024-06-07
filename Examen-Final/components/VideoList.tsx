@@ -25,7 +25,6 @@ const VideoList: FunctionComponent<Props> = ({ videos, userid }) => {
               </p>
             </div>
           </a>
-          <Fav id={video.id} userid={userid} fav={video.fav} />
         </div>
       ))}
     </div>
